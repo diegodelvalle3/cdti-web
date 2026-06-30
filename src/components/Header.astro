@@ -1,0 +1,287 @@
+---
+const serviceLinks = [
+  {
+    href: "/servicios/evaluacion-y-diagnostico/",
+    label: "Evaluación y diagnóstico",
+  },
+  { href: "/servicios/terapia-de-lenguaje/", label: "Terapia de lenguaje" },
+  { href: "/servicios/terapia-psicologica/", label: "Terapia psicológica" },
+];
+const links = [
+  { href: "/nosotros/", label: "Quiénes somos" },
+  { href: "/equipo/", label: "Equipo" },
+  { href: "/instalaciones/", label: "Instalaciones" },
+];
+---
+
+<header class="header">
+  <div class="wrap bar">
+    <a href="/" class="logo">
+      <img src="/src/images/cdtiLogo_removebg.png" alt="" class="header-img" />
+      <span class="logo-text">CDTI<small>Cuernavaca</small></span>
+    </a>
+
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="/nosotros/">Quiénes somos</a>
+
+      <div class="dropdown">
+        <button
+          class="dropdown-trigger"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Servicios
+          <svg width="11" height="7" viewBox="0 0 11 7" aria-hidden="true"
+            ><path
+              d="M1 1l4.5 4.5L10 1"
+              stroke="currentColor"
+              stroke-width="1.6"
+              fill="none"
+              stroke-linecap="round"></path></svg
+          >
+        </button>
+        <div class="dropdown-menu">
+          <a href="/servicios/">Todos los servicios</a>
+          {serviceLinks.map((s) => <a href={s.href}>{s.label}</a>)}
+        </div>
+      </div>
+
+      <a href="/equipo/">Equipo</a>
+      <a href="/instalaciones/">Instalaciones</a>
+      <a href="/contacto/">Contacto</a>
+    </nav>
+
+    <a href="/contacto/" class="btn btn-primary cta-desktop">Agenda una cita</a>
+
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      aria-expanded="false"
+      aria-controls="mobileNav"
+      aria-label="Abrir menú"
+    >
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav id="mobileNav" class="mobile-nav" aria-label="Navegación móvil">
+    <a href="/nosotros/">Quiénes somos</a>
+    <p class="mobile-group-label">Servicios</p>
+    <a href="/servicios/" class="mobile-sub">Todos los servicios</a>
+    {
+      serviceLinks.map((s) => (
+        <a href={s.href} class="mobile-sub">
+          {s.label}
+        </a>
+      ))
+    }
+    <a href="/equipo/">Equipo</a>
+    <a href="/instalaciones/">Instalaciones</a>
+    <a href="/contacto/">Contacto</a>
+    <a href="/contacto/" class="btn btn-primary" style="margin-top:8px"
+      >Agenda una cita</a
+    >
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById("menuBtn");
+  const nav = document.getElementById("mobileNav");
+  btn?.addEventListener("click", () => {
+    const open = nav?.classList.toggle("open");
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  nav?.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => {
+      nav.classList.remove("open");
+      btn?.setAttribute("aria-expanded", "false");
+    }),
+  );
+</script>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255, 252, 247, 0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: auto;
+  }
+
+  .header-img {
+    max-width: 100px;
+  }
+  .logo-text {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 21px;
+    color: var(--teal-deep);
+    display: flex;
+    flex-direction: column;
+    line-height: 1.05;
+  }
+  .logo-text small {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+  }
+  .nav > a,
+  .dropdown-trigger {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink-soft);
+    padding: 6px 0;
+    border-bottom: 2px solid transparent;
+    transition:
+      color 0.15s ease,
+      border-color 0.15s ease;
+  }
+  .nav > a:hover {
+    color: var(--teal-deep);
+    border-color: var(--clay);
+  }
+
+  .dropdown {
+    position: relative;
+  }
+  .dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    font-family: var(--font-body);
+    cursor: pointer;
+  }
+  .dropdown-trigger svg {
+    transition: transform 0.15s ease;
+  }
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: -16px;
+    margin-top: 10px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 10px;
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    box-shadow: 0 18px 40px -22px rgba(43, 36, 29, 0.35);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition:
+      opacity 0.15s ease,
+      transform 0.15s ease,
+      visibility 0.15s ease;
+  }
+  .dropdown-menu a {
+    padding: 9px 12px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .dropdown-menu a:first-child {
+    color: var(--clay-deep);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 4px;
+    border-radius: 10px 10px 0 0;
+  }
+  .dropdown-menu a:hover {
+    background: var(--teal-mist);
+  }
+  .dropdown:hover .dropdown-menu,
+  .dropdown:focus-within .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .dropdown:hover .dropdown-trigger svg {
+    transform: rotate(180deg);
+  }
+
+  .menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+  }
+  .menu-btn span {
+    width: 22px;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+  }
+  .mobile-nav {
+    display: none;
+  }
+
+  @media (max-width: 880px) {
+    .nav,
+    .cta-desktop {
+      display: none;
+    }
+    .menu-btn {
+      display: flex;
+    }
+    .mobile-nav {
+      flex-direction: column;
+      gap: 2px;
+      padding: 0 28px 18px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+    }
+    .mobile-nav.open {
+      max-height: 560px;
+      display: flex;
+    }
+    .mobile-nav a {
+      padding: 10px 4px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--line);
+    }
+    .mobile-sub {
+      padding-left: 16px;
+      font-weight: 500;
+      color: var(--ink-soft);
+    }
+    .mobile-group-label {
+      margin: 10px 0 0;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--clay-deep);
+      font-weight: 700;
+    }
+  }
+</style>

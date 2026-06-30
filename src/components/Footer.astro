@@ -1,0 +1,74 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <span class="logo-text">CDTI <small>Cuernavaca</small></span>
+      <p class="tag">Centro de Evaluación, Diagnóstico y Terapia Integral</p>
+    </div>
+
+    <nav class="footer-nav" aria-label="Navegación del pie de página">
+      <a href="/nosotros/">Quiénes somos</a>
+      <a href="/servicios/">Servicios</a>
+      <a href="/equipo/">Equipo</a>
+      <a href="/instalaciones/">Instalaciones</a>
+      <a href="/contacto/">Contacto</a>
+    </nav>
+  </div>
+  <div class="wrap">
+    <p class="copy">© {year} CDTI Cuernavaca. Sitio elaborado como proyecto de servicio social.</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--teal-deep);
+    color: #FFF8EF;
+    padding: 56px 0 24px;
+  }
+  .footer-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255,248,239,0.18);
+  }
+  .logo-text {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 20px;
+  }
+  .logo-text small {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.7;
+  }
+  .tag {
+    margin-top: 8px;
+    font-size: 14px;
+    opacity: 0.75;
+    max-width: 32ch;
+  }
+  .footer-nav {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+  .footer-nav a {
+    font-size: 14.5px;
+    font-weight: 600;
+    opacity: 0.85;
+  }
+  .footer-nav a:hover { opacity: 1; }
+  .copy {
+    margin-top: 20px;
+    font-size: 12.5px;
+    opacity: 0.6;
+  }
+</style>

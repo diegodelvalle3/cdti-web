@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import PageHero from '../components/PageHero.astro';
+import Instalaciones from '../components/Instalaciones.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Instalaciones — CDTI Cuernavaca"
+  description="Conoce las instalaciones de CDTI en Acapantzingo, Cuernavaca: salas de terapia, jardín y áreas de espera pensadas para niñas, niños y familias."
+>
+  <Header />
+  <main>
+    <PageHero
+      eyebrow="Acapantzingo, Cuernavaca"
+      title="Una casa pensada para acompañar"
+      description="Por fuera, una casa de fachada amarilla y portón café. Por dentro, cada espacio fue adaptado para que las sesiones se sientan seguras."
+      crumbs={[{ label: 'Inicio', href: '/' }, { label: 'Instalaciones' }]}
+      variant="teal"
+    />
+    <Instalaciones />
+    <CtaBand
+      title="¿Quieres conocerla en persona?"
+      text="Agenda una visita o una primera evaluación y conoce nuestras instalaciones en Acapantzingo."
+    />
+  </main>
+  <Footer />
+</Layout>

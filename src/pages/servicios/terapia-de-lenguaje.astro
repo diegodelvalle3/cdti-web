@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Footer from '../../components/Footer.astro';
+
+const focus = [
+  { title: 'Comunicación', text: 'Fortalecemos la comunicación receptiva y expresiva, verbal y no verbal.' },
+  { title: 'Articulación', text: 'Trabajamos la pronunciación y claridad del habla en sesiones individuales.' },
+  { title: 'Desarrollo del lenguaje', text: 'Acompañamos hitos de lenguaje según la edad y el ritmo de cada paciente.' },
+];
+---
+
+<Layout
+  title="Terapia de lenguaje — CDTI Cuernavaca"
+  description="Terapia de lenguaje individual para niñas, niños y adolescentes en CDTI Cuernavaca: comunicación, articulación y desarrollo del lenguaje."
+>
+  <Header />
+  <main>
+    <PageHero
+      eyebrow="Servicios"
+      title="Terapia de lenguaje"
+      description="Sesiones individuales enfocadas en comunicación, articulación y desarrollo del lenguaje, a cargo de terapeutas certificadas."
+      crumbs={[{ label: 'Inicio', href: '/' }, { label: 'Servicios', href: '/servicios/' }, { label: 'Terapia de lenguaje' }]}
+      variant="clay"
+    />
+
+    <section class="section-pad band-white">
+      <div class="wrap intro-grid">
+        <div class="frame"><span>Foto de una sesión de lenguaje</span></div>
+        <div>
+          <p class="eyebrow">En qué consiste</p>
+          <h2>Sesiones de 45 minutos, a su propio ritmo</h2>
+          <p class="body-text">
+            Nuestro equipo de terapeutas del lenguaje trabaja de manera individual
+            con cada paciente, en sesiones de 45 minutos distribuidas según las
+            necesidades específicas de cada caso. Usamos material y juegos
+            pensados para hacer de cada sesión un espacio de confianza.
+          </p>
+          <p class="body-text">
+            Mantenemos comunicación constante con familias y escuelas para que
+            los avances se sostengan también fuera del consultorio.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad band-paper">
+      <div class="wrap">
+        <p class="eyebrow center">Áreas de trabajo</p>
+        <h2 class="center">En qué nos enfocamos</h2>
+        <div class="focus-grid">
+          {focus.map(f => (
+            <div class="focus-card">
+              <h3>{f.title}</h3>
+              <p>{f.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad band-white">
+      <div class="wrap">
+        <p class="eyebrow center">Explora otros servicios</p>
+        <div class="related">
+          <a href="/servicios/evaluacion-y-diagnostico/" class="related-card">
+            <h3>Evaluación y diagnóstico →</h3>
+          </a>
+          <a href="/servicios/terapia-psicologica/" class="related-card">
+            <h3>Terapia psicológica →</h3>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <CtaBand
+      title="¿Quieres agendar una sesión?"
+      text="Escríbenos para conocer disponibilidad y agendar una primera evaluación de lenguaje."
+    />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .center { text-align: center; }
+  h2 { font-size: clamp(24px, 3vw, 32px); color: var(--teal-deep); margin-top: 10px; font-family: var(--font-display); }
+  h2.center { margin: 12px auto 0; }
+  .body-text { margin-top: 16px; color: var(--ink-soft); max-width: 54ch; }
+  .intro-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; align-items: center; }
+  .frame {
+    aspect-ratio: 4/3;
+    border-radius: 18px 40px 18px 40px;
+    background: var(--sun-soft);
+    border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; color: var(--ink-soft); font-weight: 600; font-size: 14px; padding: 24px;
+  }
+
+  .focus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 48px; }
+  .focus-card { background: var(--card); border: 1px solid var(--line); border-radius: 22px 8px 22px 8px; padding: 28px 24px; }
+  .focus-card h3 { font-size: 17px; color: var(--clay-deep); }
+  .focus-card p { margin-top: 10px; font-size: 14px; color: var(--ink-soft); line-height: 1.55; }
+
+  .related { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 36px; }
+  .related-card { background: var(--paper-deep); border-radius: 18px; padding: 22px 24px; font-weight: 700; color: var(--teal-deep); }
+  .related-card:hover { background: var(--teal-mist); }
+
+  @media (max-width: 920px) {
+    .intro-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 700px) {
+    .focus-grid, .related { grid-template-columns: 1fr; }
+  }
+</style>

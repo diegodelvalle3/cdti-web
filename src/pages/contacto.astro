@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import PageHero from '../components/PageHero.astro';
+import Contacto from '../components/Contacto.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Contacto — CDTI Cuernavaca"
+  description="Agenda una evaluación con CDTI en Acapantzingo, Cuernavaca. C. Las Ánimas 16, Acapantzingo, 62440 Cuernavaca, Mor."
+>
+  <Header />
+  <main>
+    <PageHero
+      eyebrow="Hablemos"
+      title="Agenda una evaluación"
+      description="Escríbenos o visítanos en Acapantzingo. Resolvemos tus dudas y te ayudamos a dar el primer paso."
+      crumbs={[{ label: 'Inicio', href: '/' }, { label: 'Contacto' }]}
+      variant="clay"
+    />
+    <Contacto />
+  </main>
+  <Footer />
+</Layout>

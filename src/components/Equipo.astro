@@ -1,0 +1,99 @@
+---
+const roles = [
+  { role: 'Dirección clínica', count: '3 especialistas', detail: 'Licenciadas en Comunicación Humana, UAEM', color: 'var(--teal)' },
+  { role: 'Terapia de lenguaje', count: '5 especialistas', detail: 'Sesiones individuales de comunicación y lenguaje', color: 'var(--clay)' },
+  { role: 'Psicología infantil', count: '2 especialistas', detail: 'Atención psicológica en niñez y adolescencia', color: 'var(--sun)' },
+];
+---
+
+<section id="equipo" class="section-pad equipo">
+  <div class="wrap">
+    <p class="eyebrow center">Equipo</p>
+    <h2 class="center">Profesionales que crecen junto a su equipo</h2>
+    <p class="center sub">
+      Promovemos la formación continua: nuestras especialistas participan
+      constantemente en cursos y conferencias para el desarrollo infantil.
+    </p>
+
+    <div class="role-grid">
+      {roles.map(r => (
+        <div class="role-card">
+          <div class="avatar" style={`--accent:${r.color}`}>
+            <svg viewBox="0 0 64 64" width="36" height="36" aria-hidden="true">
+              <circle cx="32" cy="24" r="13" fill="#FFF8EF"/>
+              <path d="M10 56c2-14 12-20 22-20s20 6 22 20" fill="#FFF8EF"/>
+            </svg>
+          </div>
+          <h3>{r.role}</h3>
+          <p class="count">{r.count}</p>
+          <p class="detail">{r.detail}</p>
+        </div>
+      ))}
+    </div>
+
+    <p class="placeholder-note">
+      Espacio listo para agregar fotografía, nombre y cédula de cada integrante del equipo.
+    </p>
+  </div>
+</section>
+
+<style>
+  .equipo { background: var(--paper-deep); }
+  .center { text-align: center; }
+  h2.center {
+    font-size: clamp(26px, 3.2vw, 36px);
+    color: var(--teal-deep);
+    margin: 12px auto 0;
+  }
+  .sub {
+    max-width: 56ch;
+    margin: 16px auto 0;
+    color: var(--ink-soft);
+  }
+  .role-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .role-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 30px 26px;
+    text-align: center;
+  }
+  .avatar {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 18px;
+    border-radius: 26px 12px 26px 12px;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .role-card h3 { font-size: 18px; }
+  .count {
+    margin-top: 6px;
+    font-weight: 700;
+    color: var(--clay-deep);
+    font-size: 14px;
+  }
+  .detail {
+    margin-top: 10px;
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+  .placeholder-note {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  @media (max-width: 760px) {
+    .role-grid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import PageHero from '../components/PageHero.astro';
+import Equipo from '../components/Equipo.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Equipo — CDTI Cuernavaca"
+  description="Conoce a las especialistas detrás de CDTI: dirección clínica, terapia de lenguaje y psicología infantil en Cuernavaca."
+>
+  <Header />
+  <main>
+    <PageHero
+      eyebrow="Nuestra gente"
+      title="El equipo detrás de cada sesión"
+      description="Profesionistas en Comunicación Humana, terapia de lenguaje y psicología infantil, en constante formación continua."
+      crumbs={[{ label: 'Inicio', href: '/' }, { label: 'Equipo' }]}
+      variant="clay"
+    />
+    <Equipo />
+    <CtaBand
+      title="¿Quieres conocer nuestras instalaciones?"
+      text="Una casa en Acapantzingo adaptada con salas de terapia, jardín y áreas de espera para toda la familia."
+      ctaLabel="Ver instalaciones"
+      ctaHref="/instalaciones/"
+    />
+  </main>
+  <Footer />
+</Layout>

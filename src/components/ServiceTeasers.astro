@@ -1,0 +1,75 @@
+---
+const services = [
+  {
+    title: 'Evaluación y diagnóstico',
+    text: 'El primer paso: identificamos a detalle el desarrollo, lenguaje y conducta antes de diseñar un plan de trabajo.',
+    href: '/servicios/evaluacion-y-diagnostico/',
+    color: 'var(--teal)',
+    radius: '54px 18px 54px 18px',
+  },
+  {
+    title: 'Terapia de lenguaje',
+    text: 'Sesiones individuales de 45 minutos centradas en comunicación, articulación y desarrollo del lenguaje.',
+    href: '/servicios/terapia-de-lenguaje/',
+    color: 'var(--clay)',
+    radius: '18px 54px 18px 54px',
+  },
+  {
+    title: 'Terapia psicológica',
+    text: 'Acompañamiento en TDAH, TOC, conducta y desarrollo socioemocional con enfoque cognitivo-conductual.',
+    href: '/servicios/terapia-psicologica/',
+    color: 'var(--sun)',
+    radius: '54px 18px 18px 54px',
+  },
+];
+---
+
+<section class="section-pad band-white">
+  <div class="wrap">
+    <p class="eyebrow center">Servicios</p>
+    <h2 class="center">Acompañamiento, paso a paso</h2>
+    <p class="center sub">
+      Cada proceso comienza con evaluación y diagnóstico, y continúa con la terapia
+      adecuada para las necesidades de cada paciente.
+    </p>
+
+    <div class="cards">
+      {services.map(s => (
+        <a class="card" href={s.href} style={`--accent:${s.color}; --r:${s.radius};`}>
+          <span class="dot"></span>
+          <h3>{s.title}</h3>
+          <p>{s.text}</p>
+          <span class="link">Conocer más →</span>
+        </a>
+      ))}
+    </div>
+
+    <div class="center" style="margin-top:40px;">
+      <a href="/servicios/" class="btn btn-ghost">Ver todos los servicios</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .center { text-align: center; }
+  h2.center { font-size: clamp(26px, 3.2vw, 36px); color: var(--teal-deep); margin: 12px auto 0; }
+  .sub { max-width: 56ch; margin: 16px auto 0; color: var(--ink-soft); }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 52px; }
+  .card {
+    display: block;
+    background: var(--card);
+    border-radius: var(--r);
+    padding: 32px 26px;
+    border: 1px solid var(--line);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 16px 30px -18px rgba(43,36,29,0.3); }
+  .dot { display: block; width: 16px; height: 16px; border-radius: 5px 12px 5px 12px; background: var(--accent); margin-bottom: 18px; }
+  .card h3 { font-size: 19px; color: var(--ink); }
+  .card p { margin-top: 12px; font-size: 14.5px; color: var(--ink-soft); line-height: 1.55; }
+  .link { display: inline-block; margin-top: 16px; font-weight: 700; font-size: 14px; color: var(--clay-deep); }
+
+  @media (max-width: 760px) {
+    .cards { grid-template-columns: 1fr; }
+  }
+</style>

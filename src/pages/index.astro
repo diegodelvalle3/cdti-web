@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ServiceTeasers from '../components/ServiceTeasers.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Header />
+  <main>
+    <Hero />
+
+    <section class="section-pad band-paper">
+      <div class="wrap link-grid">
+        <a href="/nosotros/" class="link-card">
+          <span class="badge" style="--c:var(--teal)">①</span>
+          <h3>Quiénes somos</h3>
+          <p>Conoce al equipo y el enfoque cognitivo-conductual detrás de CDTI.</p>
+          <span class="go">Conocer más →</span>
+        </a>
+        <a href="/equipo/" class="link-card">
+          <span class="badge" style="--c:var(--clay)">②</span>
+          <h3>Nuestro equipo</h3>
+          <p>Dirección clínica, terapeutas de lenguaje y psicólogas infantiles.</p>
+          <span class="go">Conocer más →</span>
+        </a>
+        <a href="/instalaciones/" class="link-card">
+          <span class="badge" style="--c:var(--sun)">③</span>
+          <h3>Instalaciones</h3>
+          <p>Una casa en Acapantzingo adaptada para sesiones y para jugar.</p>
+          <span class="go">Conocer más →</span>
+        </a>
+      </div>
+    </section>
+
+    <ServiceTeasers />
+
+    <CtaBand
+      title="¿Listos para agendar una evaluación?"
+      text="Escríbenos y te ayudamos a dar el primer paso: evaluación, diagnóstico y un plan de terapia hecho para tu hijo o hija."
+    />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .link-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .link-card {
+    display: block;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 28px 24px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .link-card:hover { transform: translateY(-4px); box-shadow: 0 16px 30px -20px rgba(43,36,29,0.3); }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 12px 24px 12px 24px;
+    background: var(--c);
+    color: #FFF8EF;
+    font-weight: 700;
+    font-family: var(--font-display);
+  }
+  .link-card h3 { margin-top: 16px; font-size: 18px; }
+  .link-card p { margin-top: 8px; font-size: 14px; color: var(--ink-soft); }
+  .go { display: inline-block; margin-top: 14px; font-weight: 700; font-size: 13.5px; color: var(--clay-deep); }
+
+  @media (max-width: 760px) {
+    .link-grid { grid-template-columns: 1fr; }
+  }
+</style>

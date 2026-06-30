@@ -1,0 +1,147 @@
+---
+---
+
+<section id="inicio" class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Acapantzingo · Cuernavaca, Morelos</p>
+      <h1>
+        La calidez de una casa,<br/>
+        el rigor de un equipo clínico.
+      </h1>
+      <p class="lede">
+        En CDTI evaluamos, diagnosticamos y acompañamos el desarrollo de niñas, niños
+        y adolescentes a través de terapia de lenguaje y terapia psicológica, en un
+        espacio pensado para que cada sesión se sienta tan segura como un hogar.
+      </p>
+      <div class="hero-actions">
+        <a href="/contacto/" class="btn btn-primary">Agenda una cita</a>
+        <a href="/nosotros/" class="btn btn-ghost">Conoce nuestro enfoque</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="num">3</span>
+          <span class="lbl">Direcciones clínicas en<br/>Comunicación Humana</span>
+        </div>
+        <div class="stat">
+          <span class="num">7</span>
+          <span class="lbl">Terapeutas de lenguaje<br/>y psicólogas infantiles</span>
+        </div>
+        <div class="stat">
+          <span class="num">6</span>
+          <span class="lbl">Salas equipadas para<br/>terapia y evaluación</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 420 460" class="press-shape">
+        <path fill="#2B6D67" d="M210 16c70 0 150 34 168 108 16 66-22 104-58 150-38 48-58 86-122 86C128 360 48 322 26 244 6 174 4 96 70 50 112 20 162 16 210 16Z"/>
+      </svg>
+      <svg viewBox="0 0 420 460" class="press-shape press-shape-inner">
+        <path fill="#EFAE4F" d="M214 70c48 0 102 22 116 72 12 46-16 72-42 104-26 33-40 60-86 60-50 0-104-26-120-78-14-48-16-104 28-136 28-20 64-22 104-22Z"/>
+      </svg>
+      <div class="house">
+        <svg viewBox="0 0 200 170" width="200" height="170">
+          <rect x="30" y="78" width="140" height="80" rx="6" fill="#FFFCF5"/>
+          <polygon points="20,82 100,28 180,82" fill="#B8502B"/>
+          <rect x="86" y="106" width="28" height="52" rx="3" fill="#2B6D67"/>
+          <rect x="46" y="100" width="22" height="22" rx="3" fill="#EFAE4F"/>
+          <rect x="132" y="100" width="22" height="22" rx="3" fill="#EFAE4F"/>
+          <path d="M10 158c20-14 40 10 60-2 18-12 36 10 54 0 18-10 38 10 56-2 14-9 28 2 28 2" stroke="#8FA978" stroke-width="6" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <svg class="hero-divider" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="var(--paper-deep)" d="M0,40 C220,90 380,0 600,30 C820,60 980,10 1200,40 C1320,56 1380,30 1440,38 L1440,90 L0,90 Z"/>
+  </svg>
+</section>
+
+<style>
+  .hero {
+    padding-top: 56px;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 40px;
+    align-items: center;
+    padding-bottom: 80px;
+  }
+  .hero-copy h1 {
+    font-size: clamp(34px, 4.6vw, 54px);
+    margin-top: 14px;
+    color: var(--teal-deep);
+  }
+  .lede {
+    margin-top: 22px;
+    max-width: 50ch;
+    font-size: 18px;
+    color: var(--ink-soft);
+  }
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 30px;
+    margin-top: 56px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+  .stat .num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 36px;
+    color: var(--clay-deep);
+    font-weight: 600;
+  }
+  .stat .lbl {
+    display: block;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+    line-height: 1.35;
+  }
+
+  .hero-art {
+    position: relative;
+    height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .press-shape {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+  }
+  .press-shape-inner {
+    transform: scale(0.62);
+  }
+  .house {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-divider {
+    display: block;
+    width: 100%;
+    height: 70px;
+  }
+
+  @media (max-width: 920px) {
+    .hero-grid { grid-template-columns: 1fr; padding-bottom: 56px; }
+    .hero-art { height: 280px; order: -1; }
+    .hero-stats { gap: 22px; }
+  }
+</style>

@@ -1,0 +1,174 @@
+---
+const address = "C. Las Ánimas 16, Acapantzingo, 62440 Cuernavaca, Mor.";
+const mapQuery = encodeURIComponent(address);
+---
+
+<section id="contacto" class="section-pad contacto">
+  <div class="wrap contacto-grid">
+    <div class="contacto-info">
+      <p class="eyebrow">Contacto</p>
+      <h2>Agenda una evaluación</h2>
+      <p class="body-text">
+        Escríbenos o llámanos para resolver tus dudas y agendar una primera
+        cita. Te contactaremos lo antes posible.
+      </p>
+
+      <ul class="info-list">
+        <li>
+          <strong>Dirección</strong>
+          <span>{address}</span>
+        </li>
+        <li>
+          <strong>Teléfono / WhatsApp</strong>
+          <span>Lorem ipsum dolor sit amet.</span>
+        </li>
+        <li>
+          <strong>Horario</strong>
+          <span>Lorem ipsum dolor sit amet.</span>
+        </li>
+      </ul>
+
+      <div class="map-frame">
+        <iframe
+          title="Ubicación de CDTI en Acapantzingo, Cuernavaca"
+          src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+
+    <form
+      class="contacto-form"
+      name="contacto"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="contacto" />
+      <p class="hidden-field">
+        <label>No llenar: <input name="bot-field" /></label>
+      </p>
+
+      <label>
+        Nombre completo
+        <input type="text" name="nombre" required />
+      </label>
+      <label>
+        Correo electrónico
+        <input type="email" name="correo" required />
+      </label>
+      <label>
+        Teléfono
+        <input type="tel" name="telefono" />
+      </label>
+      <label>
+        Cuéntanos brevemente tu caso
+        <textarea name="mensaje" rows="4" required></textarea>
+      </label>
+
+      <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+    </form>
+  </div>
+</section>
+
+<style>
+  .contacto {
+    background: var(--paper-deep);
+  }
+  .contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+  }
+  h2 {
+    font-size: clamp(26px, 3.2vw, 36px);
+    color: var(--teal-deep);
+    margin-top: 12px;
+  }
+  .body-text {
+    margin-top: 16px;
+    color: var(--ink-soft);
+    max-width: 48ch;
+  }
+  .info-list {
+    list-style: none;
+    padding: 0;
+    margin: 28px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .info-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .info-list strong {
+    font-size: 14px;
+    color: var(--clay-deep);
+  }
+  .info-list span {
+    color: var(--ink-soft);
+  }
+
+  .map-frame {
+    margin-top: 26px;
+    border-radius: 26px 50px 26px 26px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    height: 240px;
+  }
+  .map-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .contacto-form {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 32px 32px 32px 8px;
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-self: start;
+  }
+  .hidden-field {
+    display: none;
+  }
+  .contacto-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .contacto-form input,
+  .contacto-form textarea {
+    font-family: var(--font-body);
+    font-size: 15px;
+    padding: 11px 14px;
+    border-radius: 12px;
+    border: 1.5px solid var(--line);
+    background: var(--paper);
+    color: var(--ink);
+    resize: vertical;
+  }
+  .contacto-form input:focus,
+  .contacto-form textarea:focus {
+    outline: none;
+    border-color: var(--teal);
+  }
+  .contacto-form button {
+    margin-top: 6px;
+    align-self: flex-start;
+  }
+
+  @media (max-width: 900px) {
+    .contacto-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

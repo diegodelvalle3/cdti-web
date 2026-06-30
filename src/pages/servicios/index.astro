@@ -1,0 +1,93 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Footer from '../../components/Footer.astro';
+
+const services = [
+  {
+    title: 'Evaluación y diagnóstico',
+    text: 'Antes de iniciar cualquier terapia, identificamos a detalle el desarrollo, el lenguaje, la conducta y el aprendizaje de cada paciente, con resultados claros para familias y escuelas.',
+    href: '/servicios/evaluacion-y-diagnostico/',
+    color: 'var(--teal)',
+    radius: '54px 18px 54px 18px',
+  },
+  {
+    title: 'Terapia de lenguaje',
+    text: 'Sesiones individuales de 45 minutos centradas en comunicación, articulación y desarrollo del lenguaje, a cargo de terapeutas certificadas.',
+    href: '/servicios/terapia-de-lenguaje/',
+    color: 'var(--clay)',
+    radius: '18px 54px 18px 54px',
+  },
+  {
+    title: 'Terapia psicológica',
+    text: 'Acompañamiento en TDAH, TOC, conducta y desarrollo socioemocional bajo un enfoque cognitivo-conductual continuo.',
+    href: '/servicios/terapia-psicologica/',
+    color: 'var(--sun)',
+    radius: '54px 18px 18px 54px',
+  },
+];
+---
+
+<Layout
+  title="Servicios — CDTI Cuernavaca"
+  description="Evaluación y diagnóstico, terapia de lenguaje y terapia psicológica para niñas, niños y adolescentes en CDTI Cuernavaca."
+>
+  <Header />
+  <main>
+    <PageHero
+      eyebrow="Lo que hacemos"
+      title="Servicios"
+      description="Cada proceso comienza con evaluación y diagnóstico, y continúa con la terapia adecuada para las necesidades de cada paciente."
+      crumbs={[{ label: 'Inicio', href: '/' }, { label: 'Servicios' }]}
+      variant="teal"
+    />
+
+    <section class="section-pad band-white">
+      <div class="wrap">
+        <div class="cards">
+          {services.map(s => (
+            <a class="card" href={s.href} style={`--accent:${s.color}; --r:${s.radius};`}>
+              <span class="dot"></span>
+              <h2>{s.title}</h2>
+              <p>{s.text}</p>
+              <span class="link">Conocer más →</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CtaBand
+      title="¿No sabes por dónde empezar?"
+      text="Cuéntanos qué necesita tu hijo o hija y te orientamos hacia el servicio adecuado."
+    />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .card {
+    display: block;
+    background: var(--card);
+    border-radius: var(--r);
+    padding: 36px 28px;
+    border: 1px solid var(--line);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 16px 30px -18px rgba(43,36,29,0.3); }
+  .dot { display: block; width: 18px; height: 18px; border-radius: 6px 14px 6px 14px; background: var(--accent); margin-bottom: 20px; }
+  .card h2 { font-size: 21px; font-family: var(--font-display); color: var(--ink); }
+  .card p { margin-top: 14px; font-size: 14.5px; color: var(--ink-soft); line-height: 1.6; }
+  .link { display: inline-block; margin-top: 18px; font-weight: 700; font-size: 14px; color: var(--clay-deep); }
+
+  @media (max-width: 860px) {
+    .cards { grid-template-columns: 1fr; }
+  }
+</style>

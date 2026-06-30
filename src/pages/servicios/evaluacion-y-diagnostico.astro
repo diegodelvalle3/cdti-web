@@ -1,0 +1,131 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Footer from '../../components/Footer.astro';
+
+const steps = [
+  { n: '1', title: 'Entrevista inicial', text: 'Platicamos con la familia sobre el motivo de consulta, antecedentes y observaciones previas de escuela o casa.' },
+  { n: '2', title: 'Evaluación', text: 'Aplicamos instrumentos específicos según el área a revisar: lenguaje, conducta, aprendizaje o desarrollo general.' },
+  { n: '3', title: 'Diagnóstico', text: 'Integramos los resultados en un diagnóstico claro, explicado a detalle a madres, padres o tutores.' },
+  { n: '4', title: 'Plan de trabajo', text: 'Diseñamos un plan de terapia a la medida, con objetivos y seguimiento a través del tiempo.' },
+];
+---
+
+<Layout
+  title="Evaluación y diagnóstico — CDTI Cuernavaca"
+  description="Evaluación y diagnóstico individualizado para niñas, niños y adolescentes en CDTI Cuernavaca, como primer paso antes de iniciar terapia."
+>
+  <Header />
+  <main>
+    <PageHero
+      eyebrow="Servicios"
+      title="Evaluación y diagnóstico"
+      description="El primer paso de todo proceso en CDTI: entender a fondo el desarrollo, lenguaje, conducta y aprendizaje de cada paciente."
+      crumbs={[{ label: 'Inicio', href: '/' }, { label: 'Servicios', href: '/servicios/' }, { label: 'Evaluación y diagnóstico' }]}
+      variant="teal"
+    />
+
+    <section class="section-pad band-white">
+      <div class="wrap intro-grid">
+        <div>
+          <p class="eyebrow">Por qué empezar aquí</p>
+          <h2>Un diagnóstico claro, antes que cualquier terapia</h2>
+          <p class="body-text">
+            Cada caso en CDTI inicia con un proceso de evaluación, sin importar si
+            la familia llega con un diagnóstico previo o no. Revisamos a detalle
+            el desarrollo del lenguaje, la conducta y el aprendizaje, para
+            construir un plan de trabajo que responda a las necesidades reales
+            de cada niña, niño o adolescente — no a un molde general.
+          </p>
+          <p class="body-text">
+            Los resultados se comparten de forma clara con las familias y, cuando
+            es necesario, con las escuelas u otros especialistas que acompañan
+            el caso.
+          </p>
+        </div>
+        <div class="frame">
+          <span>Foto del proceso de evaluación</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad band-paper">
+      <div class="wrap">
+        <p class="eyebrow center">Cómo es el proceso</p>
+        <h2 class="center">De la primera cita al plan de trabajo</h2>
+        <div class="steps">
+          {steps.map(s => (
+            <div class="step">
+              <span class="num">{s.n}</span>
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad band-white">
+      <div class="wrap">
+        <p class="eyebrow center">Explora otros servicios</p>
+        <div class="related">
+          <a href="/servicios/terapia-de-lenguaje/" class="related-card">
+            <h3>Terapia de lenguaje →</h3>
+          </a>
+          <a href="/servicios/terapia-psicologica/" class="related-card">
+            <h3>Terapia psicológica →</h3>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <CtaBand
+      title="¿Listos para una primera evaluación?"
+      text="Agenda una cita y empecemos a construir el plan de trabajo adecuado."
+    />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .center { text-align: center; }
+  h2 { font-size: clamp(24px, 3vw, 32px); color: var(--teal-deep); margin-top: 10px; font-family: var(--font-display); }
+  h2.center { margin: 12px auto 0; }
+  .body-text { margin-top: 16px; color: var(--ink-soft); max-width: 54ch; }
+  .intro-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
+  .frame {
+    aspect-ratio: 4/3;
+    border-radius: 40px 18px 40px 18px;
+    background: var(--teal-mist);
+    border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; color: var(--ink-soft); font-weight: 600; font-size: 14px; padding: 24px;
+  }
+
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 48px; }
+  .step { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 26px 22px; }
+  .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; border-radius: 10px 18px 10px 18px;
+    background: var(--teal); color: #FFF8EF; font-family: var(--font-display); font-weight: 700;
+  }
+  .step h3 { margin-top: 14px; font-size: 16.5px; }
+  .step p { margin-top: 8px; font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; }
+
+  .related { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 36px; }
+  .related-card {
+    background: var(--paper-deep); border-radius: 18px; padding: 22px 24px;
+    font-weight: 700; color: var(--teal-deep);
+  }
+  .related-card:hover { background: var(--teal-mist); }
+
+  @media (max-width: 920px) {
+    .intro-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .steps, .related { grid-template-columns: 1fr; }
+  }
+</style>

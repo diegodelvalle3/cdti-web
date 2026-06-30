@@ -1,0 +1,107 @@
+---
+const features = [
+  { label: 'Patio de espera', detail: 'Sofás, resbaladilla, brincolín, columpio y juegos de mesa para familias' },
+  { label: '6 salas equipadas', detail: '3 en planta alta con baño completo, 3 en planta baja con material y juegos' },
+  { label: 'Jardín trasero', detail: 'Espacio para actividades recreativas al aire libre' },
+  { label: 'Sala de juntas', detail: 'Para reuniones con familias, escuelas y especialistas externos' },
+];
+---
+
+<section id="instalaciones" class="section-pad">
+  <div class="wrap inst-grid">
+    <div class="inst-copy">
+      <p class="eyebrow">Instalaciones</p>
+      <h2>Una casa de dos pisos, pensada para acompañar</h2>
+      <p class="body-text">
+        Por fuera, CDTI tiene el aspecto de una casa: portón café, fachada amarilla y
+        un patio acondicionado como sala de espera. Por dentro, cada rincón fue
+        adaptado para las sesiones de lenguaje y psicología.
+      </p>
+
+      <div class="feature-list">
+        {features.map(f => (
+          <div class="feature">
+            <span class="bullet"></span>
+            <div>
+              <p class="f-label">{f.label}</p>
+              <p class="f-detail">{f.detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="gallery">
+      <div class="g-frame g-1"><span>Patio y jardín</span></div>
+      <div class="g-frame g-2"><span>Salas de terapia</span></div>
+      <div class="g-frame g-3"><span>Fachada CDTI</span></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .inst-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    gap: 56px;
+    align-items: center;
+  }
+  h2 {
+    font-size: clamp(26px, 3.2vw, 36px);
+    color: var(--teal-deep);
+    margin-top: 12px;
+  }
+  .body-text {
+    margin-top: 18px;
+    color: var(--ink-soft);
+    max-width: 52ch;
+  }
+  .feature-list {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .feature {
+    display: flex;
+    gap: 14px;
+  }
+  .bullet {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    margin-top: 5px;
+    border-radius: 4px 10px 4px 10px;
+    background: var(--sun);
+  }
+  .f-label { font-weight: 700; }
+  .f-detail { margin-top: 3px; font-size: 14px; color: var(--ink-soft); }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .g-frame {
+    background: var(--card);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--ink-soft);
+    font-weight: 600;
+    font-size: 13.5px;
+    padding: 18px;
+    min-height: 140px;
+  }
+  .g-1 { border-radius: 50px 16px 16px 16px; grid-column: 1 / 2; grid-row: 1 / 3; min-height: 300px; background: var(--teal-mist); }
+  .g-2 { border-radius: 16px 50px 16px 16px; }
+  .g-3 { border-radius: 16px 16px 16px 50px; }
+
+  @media (max-width: 860px) {
+    .inst-grid { grid-template-columns: 1fr; gap: 36px; }
+    .gallery { grid-template-columns: 1fr 1fr; }
+    .g-1 { grid-column: 1 / 3; min-height: 180px; }
+  }
+</style>

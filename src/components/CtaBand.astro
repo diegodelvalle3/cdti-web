@@ -1,0 +1,127 @@
+---
+interface Props {
+  title: string;
+  text: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+}
+const {
+  title,
+  text,
+  ctaLabel = "Agenda una cita",
+  ctaHref = "/contacto/",
+} = Astro.props as Props;
+---
+
+<section class="cta-band">
+  <div class="wrap cta-inner">
+    <div class="cta-copy">
+      <h2 class="cta-title">{title}</h2>
+      <p>{text}</p>
+      <a href={ctaHref} class="btn btn-light">{ctaLabel}</a>
+    </div>
+    <div class="cta-blobs" aria-hidden="true">
+      <svg viewBox="0 0 200 200" class="blob blob-1">
+        <path
+          fill="rgba(255,248,239,0.9)"
+          d="M100 12c40 0 78 18 86 56 7 34-12 56-36 78-24 22-34 42-70 42-40 0-74-22-84-58S-10 60 30 30C50 16 76 12 100 12Z"
+        ></path>
+      </svg>
+      <svg viewBox="0 0 64 64" class="blob blob-2"
+        ><circle cx="32" cy="32" r="30" fill="#F3B85A"></circle></svg
+      >
+      <svg viewBox="0 0 64 64" class="blob blob-3"
+        ><circle cx="32" cy="32" r="22" fill="#8FA978"></circle></svg
+      >
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-band {
+    background: linear-gradient(
+      120deg,
+      var(--teal) 0%,
+      var(--teal) 55%,
+      var(--clay) 55%,
+      var(--clay) 100%
+    );
+    color: #fff8ef;
+    overflow: hidden;
+  }
+  .cta-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 280px;
+    padding: 64px 0;
+  }
+  .cta-copy {
+    max-width: 540px;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-copy h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(26px, 3.4vw, 38px);
+  }
+  .cta-copy p {
+    margin-top: 14px;
+    color: rgba(255, 248, 239, 0.92);
+    max-width: 50ch;
+  }
+
+  .cta-title {
+    color: white;
+  }
+
+  .btn-light {
+    margin-top: 26px;
+    background: #fff8ef;
+    color: var(--teal-deep);
+    box-shadow: 0 6px 0 rgba(29, 74, 71, 0.35);
+  }
+  .btn-light:hover {
+    transform: translateY(-2px);
+  }
+
+  .cta-blobs {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .blob-1 {
+    position: absolute;
+    right: -40px;
+    top: -30px;
+    width: 320px;
+    height: 320px;
+    opacity: 0.16;
+  }
+  .blob-2 {
+    position: absolute;
+    right: 90px;
+    bottom: 24px;
+    width: 46px;
+    height: 46px;
+  }
+  .blob-3 {
+    position: absolute;
+    right: 40px;
+    top: 50px;
+    width: 30px;
+    height: 30px;
+  }
+
+  @media (max-width: 760px) {
+    .cta-inner {
+      padding: 52px 0;
+      min-height: unset;
+    }
+    .blob-1 {
+      width: 220px;
+      height: 220px;
+    }
+  }
+</style>

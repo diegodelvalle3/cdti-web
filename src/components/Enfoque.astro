@@ -1,0 +1,111 @@
+---
+const nodes = [
+  { label: 'Escuela', angle: -90 },
+  { label: 'Familia', angle: -30 },
+  { label: 'Neurología', angle: 30 },
+  { label: 'Psiquiatría', angle: 90 },
+  { label: 'Nutrición', angle: 150 },
+  { label: 'Pediatría', angle: 210 },
+];
+---
+
+<section class="section-pad enfoque">
+  <div class="wrap enfoque-grid">
+    <div class="enfoque-copy">
+      <p class="eyebrow">Nuestro enfoque</p>
+      <h2>Terapia que no trabaja sola</h2>
+      <p class="body-text">
+        Mantenemos comunicación constante con escuelas y familias, y coordinamos
+        cada caso con otros especialistas de la salud, para que el avance de cada
+        paciente se sostenga dentro y fuera del consultorio.
+      </p>
+    </div>
+
+    <div class="diagram" aria-hidden="true">
+      <div class="center-node">CDTI</div>
+      {nodes.map(n => {
+        const rad = (n.angle * Math.PI) / 180;
+        const x = Math.cos(rad) * 150;
+        const y = Math.sin(rad) * 150;
+        return (
+          <div class="node" style={`transform: translate(${x}px, ${y}px);`}>
+            {n.label}
+          </div>
+        );
+      })}
+      <svg class="lines" viewBox="-180 -180 360 360">
+        {nodes.map(n => {
+          const rad = (n.angle * Math.PI) / 180;
+          const x = Math.cos(rad) * 150;
+          const y = Math.sin(rad) * 150;
+          return <line x1="0" y1="0" x2={x} y2={y} stroke="var(--line)" stroke-width="2" />;
+        })}
+      </svg>
+    </div>
+  </div>
+</section>
+
+<style>
+  .enfoque-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  h2 {
+    font-size: clamp(26px, 3.2vw, 36px);
+    color: var(--teal-deep);
+    margin-top: 12px;
+  }
+  .body-text {
+    margin-top: 18px;
+    color: var(--ink-soft);
+    max-width: 48ch;
+  }
+
+  .diagram {
+    position: relative;
+    height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .center-node {
+    position: relative;
+    z-index: 2;
+    width: 96px;
+    height: 96px;
+    border-radius: 30px 14px 30px 14px;
+    background: var(--teal);
+    color: #FFF8EF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 17px;
+  }
+  .node {
+    position: absolute;
+    z-index: 2;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px 26px 14px 26px;
+    padding: 9px 16px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 860px) {
+    .enfoque-grid { grid-template-columns: 1fr; }
+    .diagram { height: 320px; transform: scale(0.85); }
+  }
+</style>
