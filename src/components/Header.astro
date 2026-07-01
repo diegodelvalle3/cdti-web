@@ -12,12 +12,14 @@ const links = [
   { href: "/equipo/", label: "Equipo" },
   { href: "/instalaciones/", label: "Instalaciones" },
 ];
+
+import logo from "../images/cdtiLogo_removebg.png";
 ---
 
 <header class="header">
   <div class="wrap bar">
     <a href="/" class="logo">
-      <img src="/src/images/cdtiLogo_removebg.png" alt="" class="header-img" />
+      <img src={logo.src} alt="Logo CDTI" class="header-img" />
       <span class="logo-text">CDTI<small>Cuernavaca</small></span>
     </a>
 
