@@ -15,24 +15,6 @@ npm run dev
 
 Abre `http://localhost:4321` en tu navegador. Los cambios se ven al guardar.
 
-## Cómo desplegarlo en Netlify (gratis, sin dominio propio)
-
-1. Sube esta carpeta a un repositorio de GitHub (o arrastra la carpeta
-   directamente a [app.netlify.com/drop](https://app.netlify.com/drop) para
-   una prueba rápida sin Git).
-2. En Netlify: **Add new site → Import an existing project**, conecta el
-   repo. Netlify detecta automáticamente:
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-3. Netlify te da una URL gratuita tipo `algo-aleatorio.netlify.app`. Puedes
-   cambiarla en **Site settings → Change site name**.
-4. Cuando compren el dominio, lo agregan en **Domain settings → Add a custom
-   domain**, sin tocar el código.
-
-El formulario de contacto ya está conectado a **Netlify Forms** (no necesita
-backend ni costo extra): los mensajes llegarán al panel de Netlify del sitio,
-en la pestaña "Forms".
-
 ## Contenido pendiente de completar
 
 El sitio tiene contenido real basado en información pública del centro, pero
