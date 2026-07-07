@@ -20,11 +20,20 @@ const mapQuery = encodeURIComponent(address);
         </li>
         <li>
           <strong>Teléfono / WhatsApp</strong>
-          <span>Lorem ipsum dolor sit amet.</span>
+          <span>777 435 2674 | 777 126 7106</span>
+        </li>
+        <li>
+          <strong>Correo</strong>
+          <span>centrocdti@gmail.com</span>
         </li>
         <li>
           <strong>Horario</strong>
-          <span>Lorem ipsum dolor sit amet.</span>
+          <span
+            >De lunes a viernes 8:00 a.m. a 1:00 p.m. y de 2:30 p.m. a 7:00 p.m. <br
+            />
+
+            Sábados 10:00 a.m. a 13:00 p.m.</span
+          >
         </li>
       </ul>
 
@@ -37,38 +46,40 @@ const mapQuery = encodeURIComponent(address);
       </div>
     </div>
 
-    <form
-      class="contacto-form"
-      name="contacto"
-      method="POST"
-      action="/success"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
-    >
-      <input type="hidden" name="form-name" value="contacto" />
-      <p class="hidden-field">
-        <label>No llenar: <input name="bot-field" /></label>
-      </p>
+    <div>
+      <form
+        class="contacto-form"
+        name="contacto"
+        method="POST"
+        action="/success"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="form-name" value="contacto" />
+        <p class="hidden-field">
+          <label>No llenar: <input name="bot-field" /></label>
+        </p>
 
-      <label>
-        Nombre completo
-        <input type="text" name="nombre" required />
-      </label>
-      <label>
-        Correo electrónico
-        <input type="email" name="correo" required />
-      </label>
-      <label>
-        Teléfono
-        <input type="tel" name="telefono" />
-      </label>
-      <label>
-        Cuéntanos brevemente tu caso
-        <textarea name="mensaje" rows="4" required></textarea>
-      </label>
+        <label>
+          Nombre completo
+          <input type="text" name="nombre" required />
+        </label>
+        <label>
+          Correo electrónico
+          <input type="email" name="correo" required />
+        </label>
+        <label>
+          Teléfono
+          <input type="tel" name="telefono" />
+        </label>
+        <label>
+          Cuéntanos brevemente tu caso
+          <textarea name="mensaje" rows="4" required></textarea>
+        </label>
 
-      <button type="submit" class="btn btn-primary">Enviar mensaje</button>
-    </form>
+        <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -80,6 +91,8 @@ const mapQuery = encodeURIComponent(address);
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 56px;
+    align-items: center;
+    align-content: center;
   }
   h2 {
     font-size: clamp(26px, 3.2vw, 36px);
