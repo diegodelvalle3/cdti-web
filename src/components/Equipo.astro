@@ -1,9 +1,30 @@
 ---
 const roles = [
-  { role: 'Dirección clínica', count: '3 especialistas', detail: 'Licenciadas en Comunicación Humana, UAEM', color: 'var(--teal)' },
-  { role: 'Terapia de lenguaje', count: '5 especialistas', detail: 'Sesiones individuales de comunicación y lenguaje', color: 'var(--clay)' },
-  { role: 'Psicología infantil', count: '2 especialistas', detail: 'Atención psicológica en niñez y adolescencia', color: 'var(--sun)' },
+  {
+    role: "Dirección clínica",
+    count: "3 especialistas",
+    detail: "Licenciadas en Comunicación Humana, UAEM",
+    color: "var(--teal)",
+  },
+  {
+    role: "Terapia de lenguaje",
+    count: "5 especialistas",
+    detail: "Sesiones individuales de comunicación y lenguaje",
+    color: "var(--clay)",
+  },
+  {
+    role: "Psicología infantil",
+    count: "2 especialistas",
+    detail: "Atención psicológica en niñez y adolescencia",
+    color: "var(--sun)",
+  },
 ];
+
+const images = Object.values(
+  import.meta.glob("../images/cdti_terapeuta*.png", {
+    eager: true,
+  }),
+);
 ---
 
 <section id="equipo" class="section-pad equipo">
@@ -16,30 +37,49 @@ const roles = [
     </p>
 
     <div class="role-grid">
-      {roles.map(r => (
-        <div class="role-card">
-          <div class="avatar" style={`--accent:${r.color}`}>
-            <svg viewBox="0 0 64 64" width="36" height="36" aria-hidden="true">
-              <circle cx="32" cy="24" r="13" fill="#FFF8EF"/>
-              <path d="M10 56c2-14 12-20 22-20s20 6 22 20" fill="#FFF8EF"/>
-            </svg>
+      {
+        roles.map((r) => (
+          <div class="role-card">
+            <div class="avatar" style={`--accent:${r.color}`}>
+              <svg
+                viewBox="0 0 64 64"
+                width="36"
+                height="36"
+                aria-hidden="true"
+              >
+                <circle cx="32" cy="24" r="13" fill="#FFF8EF" />
+                <path d="M10 56c2-14 12-20 22-20s20 6 22 20" fill="#FFF8EF" />
+              </svg>
+            </div>
+            <h3>{r.role}</h3>
+            <p class="count">{r.count}</p>
+            <p class="detail">{r.detail}</p>
           </div>
-          <h3>{r.role}</h3>
-          <p class="count">{r.count}</p>
-          <p class="detail">{r.detail}</p>
-        </div>
-      ))}
+        ))
+      }
     </div>
 
-    <p class="placeholder-note">
-      Espacio listo para agregar fotografía, nombre y cédula de cada integrante del equipo.
-    </p>
+    <div class="equipo-fotos">
+      {
+        images.map((img, index) => (
+          <img
+            src={img.default.src}
+            alt={`Terapeuta ${index + 1}`}
+            class="terapeuta_img"
+          />
+        ))
+      }
+    </div>
   </div>
 </section>
 
 <style>
-  .equipo { background: var(--paper-deep); }
-  .center { text-align: center; }
+  .equipo {
+    background: var(--paper-deep);
+  }
+  .center {
+    text-align: center;
+  }
   h2.center {
     font-size: clamp(26px, 3.2vw, 36px);
     color: var(--teal-deep);
@@ -73,7 +113,9 @@ const roles = [
     align-items: center;
     justify-content: center;
   }
-  .role-card h3 { font-size: 18px; }
+  .role-card h3 {
+    font-size: 18px;
+  }
   .count {
     margin-top: 6px;
     font-weight: 700;
@@ -93,7 +135,35 @@ const roles = [
     font-style: italic;
   }
 
+  .equipo-fotos {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 30px 0px;
+    gap: 40px;
+    margin: 0 auto;
+  }
+
+  .terapeuta_img {
+    width: 100%;
+    border-radius: 20px;
+  }
+
   @media (max-width: 760px) {
-    .role-grid { grid-template-columns: 1fr; }
+    .role-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (min-width: 500px) {
+    .equipo-fotos {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 690px) {
+    .equipo-fotos {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 </style>
